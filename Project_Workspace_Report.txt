@@ -1,0 +1,92 @@
+Question 2 – Secure Project Workspace Setup
+
+1. Command:
+mkdir ProjectWorkspace
+
+Output:
+ProjectWorkspace directory created successfully.
+
+Observation:
+A secure project workspace was created to store project files.
+
+--------------------------------------------------
+
+2. Command:
+mkdir Docs Source Backup
+
+Output:
+Three directories (Docs, Source, Backup) were created successfully.
+
+Observation:
+The project was organized into separate folders for documentation, source code, and backups.
+
+--------------------------------------------------
+
+3. Command:
+touch Docs/readme.txt
+touch Source/code.c
+touch Backup/backup.txt
+
+Output:
+Files created successfully.
+
+Observation:
+Sample files were created inside each directory.
+
+--------------------------------------------------
+
+4. Command:
+ls -R
+
+Output:
+.
+├── Backup
+│   └── backup.txt
+├── Docs
+│   └── readme.txt
+└── Source
+    └── code.c
+
+Observation:
+The directory structure was displayed successfully.
+
+--------------------------------------------------
+
+5. Command:
+ls -l
+
+Output:
+drwxrwxr-x Docs
+drwxrwxr-x Source
+drwxrwxr-x Backup
+
+Observation:
+This command displayed the permissions and ownership of all directories.
+
+--------------------------------------------------
+
+6. Command:
+umask
+
+Output:
+0002
+
+Observation:
+The default umask determines the permissions assigned to newly created files and directories.
+
+--------------------------------------------------
+
+7. Command:
+chmod -R 700 .
+
+Output:
+Permissions changed successfully.
+
+Observation:
+Permissions were modified so that only the owner has full access to the project workspace.
+
+--------------------------------------------------
+
+Conclusion
+
+The project workspace was created successfully. File permissions, ownership, and umask were verified. Restrictive permissions help protect project data from unauthorized access.
