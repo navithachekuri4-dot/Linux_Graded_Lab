@@ -1,0 +1,98 @@
+==========================================
+IO INVESTIGATION REPORT
+Question 4 – File Access and I/O Investigation
+==========================================
+
+1. Command:
+lsof
+
+Output:
+A list of open files, libraries, devices, and processes currently in use by the system was displayed.
+
+Observation:
+The lsof command lists all open files along with the processes using them. It helps identify which applications are accessing files.
+
+--------------------------------------------------
+
+2. Command:
+ls -l /proc/$$/fd
+
+Output:
+0 -> /dev/pts/2
+1 -> /dev/pts/2
+2 -> /dev/pts/2
+
+Observation:
+The command displayed the file descriptors used by the current shell. File descriptor 0 represents standard input, 1 represents standard output, and 2 represents standard error.
+
+--------------------------------------------------
+
+3. Command:
+echo "Linux Test" > output.txt
+
+Output:
+The text was successfully redirected into output.txt.
+
+Observation:
+The output redirection operator (>) stores the command output into a file instead of displaying it on the terminal.
+
+--------------------------------------------------
+
+4. Command:
+cat output.txt
+
+Output:
+Linux Test
+
+Observation:
+The contents of output.txt were displayed successfully.
+
+--------------------------------------------------
+
+5. Command:
+ls invalidfolder 2> error.txt
+
+Output:
+The error message was redirected to error.txt.
+
+Observation:
+Standard error (stderr) was redirected into a separate file using file descriptor 2.
+
+--------------------------------------------------
+
+6. Command:
+cat error.txt
+
+Output:
+ls: cannot access 'invalidfolder': No such file or directory
+
+Observation:
+The error message stored in error.txt was displayed successfully.
+
+--------------------------------------------------
+
+7. Command:
+ls / invalidfolder > alloutput.txt 2>&1
+
+Output:
+Standard output and standard error were redirected into alloutput.txt.
+
+Observation:
+Both output streams were combined into a single file using 2>&1.
+
+--------------------------------------------------
+
+8. Command:
+ulimit -a
+
+Output:
+System resource limits such as open files, memory size, stack size, and CPU time were displayed.
+
+Observation:
+The ulimit command displays the resource limits applied to the current user and helps monitor system resource allocation.
+
+--------------------------------------------------
+
+Conclusion
+
+Linux manages file input and output using file descriptors. Standard input, standard output, and standard error are represented by descriptors 0, 1, and 2. Output and error redirection make it easier to manage program execution and logging.
